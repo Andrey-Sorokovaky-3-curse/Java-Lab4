@@ -1,7 +1,8 @@
-package pro.sorokovsky.normal;
+package pro.sorokovsky.normal.command;
 
 import pro.sorokovsky.console.commands.Command;
 import pro.sorokovsky.console.commands.Context;
+import pro.sorokovsky.normal.frame.OneFrame;
 
 public class NormalOneTask extends Command {
     @Override

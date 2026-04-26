@@ -1,10 +1,10 @@
-package pro.sorokovsky.normal;
+package pro.sorokovsky.normal.frame;
+
+import pro.sorokovsky.normal.handler.AddItemToStackHandler;
 
 import javax.swing.*;
 
 public class OneFrame extends JFrame {
-    private Integer count = 0;
-
     public OneFrame(String title) {
         setTitle(title);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -16,7 +16,8 @@ public class OneFrame extends JFrame {
         final var label = new JLabel("Стек");
         final var list = new JList<>(model);
         final var button = new JButton("Додати елемент у стек");
-        button.addActionListener(e -> model.add(0, ++count));
+        final var listener = new AddItemToStackHandler(model);
+        button.addActionListener(listener);
         panel.add(label);
         panel.add(list);
         panel.add(button);
