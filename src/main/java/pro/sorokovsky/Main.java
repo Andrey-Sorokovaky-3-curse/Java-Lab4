@@ -21,6 +21,7 @@ public class Main {
         context.addCommand(new SimpleThreeTask());
         context.addCommand(new SimpleFourTask());
         context.addCommand(new SimpleFiveTask());
+        context.addCommand(new SimpleSixTask());
         return context;
     }
 }
