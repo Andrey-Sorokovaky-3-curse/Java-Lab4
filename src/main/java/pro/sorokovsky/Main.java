@@ -3,10 +3,7 @@ package pro.sorokovsky;
 import org.jetbrains.annotations.NotNull;
 import pro.sorokovsky.console.commands.Context;
 import pro.sorokovsky.console.commands.ExitCommand;
-import pro.sorokovsky.simple.SimpleFourTask;
-import pro.sorokovsky.simple.SimpleOneTask;
-import pro.sorokovsky.simple.SimpleThreeTask;
-import pro.sorokovsky.simple.SimpleTwoTask;
+import pro.sorokovsky.simple.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,6 +20,7 @@ public class Main {
         context.addCommand(new SimpleTwoTask());
         context.addCommand(new SimpleThreeTask());
         context.addCommand(new SimpleFourTask());
+        context.addCommand(new SimpleFiveTask());
         return context;
     }
 }
