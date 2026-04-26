@@ -23,7 +23,7 @@ public class SimpleThreeTask extends Command {
         }
         final var number = input.enter("2 елемент однозв'язного списку");
         linkedList.add(2, number);
-        System.out.println("Однозв'язний список: ");
+        System.out.print("Однозв'язний список: ");
         for (var item : linkedList) {
             System.out.printf("%d ", item);
         }
