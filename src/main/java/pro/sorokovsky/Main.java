@@ -3,6 +3,7 @@ package pro.sorokovsky;
 import org.jetbrains.annotations.NotNull;
 import pro.sorokovsky.console.commands.Context;
 import pro.sorokovsky.console.commands.ExitCommand;
+import pro.sorokovsky.normal.command.NormalFourTask;
 import pro.sorokovsky.normal.command.NormalOneTask;
 import pro.sorokovsky.normal.command.NormalThreeTask;
 import pro.sorokovsky.normal.command.NormalTwoTask;
@@ -38,6 +39,7 @@ public class Main {
         context.addCommand(new NormalOneTask());
         context.addCommand(new NormalTwoTask());
         context.addCommand(new NormalThreeTask());
+        context.addCommand(new NormalFourTask());
         return context;
     }
 }
