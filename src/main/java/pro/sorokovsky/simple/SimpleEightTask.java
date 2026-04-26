@@ -25,7 +25,7 @@ public class SimpleEightTask extends Command {
         }
 
         for (int i = 0; i < 4; i++) {
-            final var number = input.enter("%d елемент другого черги".formatted(i));
+            final var number = input.enter("%d елемент другої черги".formatted(i));
             secondQueue.addFirst(number);
         }
 
