@@ -9,12 +9,16 @@ public class HardFrame extends JFrame {
     private final JPanel rootPanel = new JPanel();
 
     public HardFrame(String title) {
+        final var scrollPane = new JScrollPane();
+        scrollPane.setViewportView(rootPanel);
+        scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         setTitle(title);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setSize(800,600);
         setResizable(false);
-        add(rootPanel);
-        rootPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 20));
+        add(scrollPane);
+        rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.Y_AXIS));
         rootPanel.setAlignmentY(TOP_ALIGNMENT);
         setupFirstTask();
         setupSecondTask();
@@ -22,6 +26,7 @@ public class HardFrame extends JFrame {
         setupFourthTask();
         setupFifthTask();
         setupSixthTask();
+        setupSeventhTask();
     }
 
     private void setupFirstTask() {
@@ -63,6 +68,13 @@ public class HardFrame extends JFrame {
         rootPanel.add(configureConvertorTask(
                 "Перетворення математичного виразу в постфіксній (abc*+) формі до інфіксної (a+b*c) форми.",
                 new PostfixToInfixConverter()
+        ));
+    }
+
+    private void setupSeventhTask() {
+        rootPanel.add(configureConvertorTask(
+                "Заданий вираз, що містить круглі дужки. Визначити баланс дужок (Кожній відкриваючій відповідає закриваюча).",
+                new BracketBalancer()
         ));
     }
 
