@@ -11,6 +11,7 @@ public class HardFrame extends JFrame {
     public HardFrame(String title) {
         final var scrollPane = new JScrollPane();
         scrollPane.setViewportView(rootPanel);
+        scrollPane.setAlignmentX(Component.LEFT_ALIGNMENT);
         scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         setTitle(title);
@@ -20,6 +21,7 @@ public class HardFrame extends JFrame {
         add(scrollPane);
         rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.Y_AXIS));
         rootPanel.setAlignmentY(TOP_ALIGNMENT);
+        rootPanel.setAlignmentX(LEFT_ALIGNMENT);
         setupFirstTask();
         setupSecondTask();
         setupThirdTask();
@@ -28,6 +30,8 @@ public class HardFrame extends JFrame {
         setupSixthTask();
         setupSeventhTask();
         setupEightTask();
+        setupNinetiethTask();
+        setupTenthTask();
     }
 
     private void setupFirstTask() {
@@ -81,14 +85,41 @@ public class HardFrame extends JFrame {
 
     private void setupEightTask() {
         rootPanel.add(configureConvertorTask(
-                "Заданий вираз, що містить круглі, квадратні та фігурні дужки. Визначити баланс дужок (Кожній відкриваючій відповідає закриваюча). ({[]}) – допустимо, ({[])}- не допустимо.",
+                "Заданий вираз, що містить круглі, квадратні та фігурні дужки. Визначити баланс дужок",
                 new MultiBracketBalancer()
         ));
+    }
+
+    private void setupNinetiethTask() {
+        rootPanel.add(configureConvertorTask(
+                "Необхідно в новому рядку\n" +
+                        "записати всі символи, розміщені поза дужками, а потім в зворотньому порядку символи, що заключні в дужки.",
+                new BracketReverseExtractor()
+        ));
+    }
+
+    private void setupTenthTask() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setBorder(BorderFactory.createTitledBorder(
+                "Перевірка прямокутності грядок (садова ділянка M×N)"
+        ));
+
+        JButton openGardenBtn = new JButton("Відкрити перевірку грядок");
+        openGardenBtn.addActionListener(e -> {
+            GardenFrame gardenFrame = new GardenFrame();
+            gardenFrame.setVisible(true);
+        });
+
+        panel.add(openGardenBtn);
+        rootPanel.add(panel);
+        rootPanel.add(Box.createVerticalStrut(15));
     }
 
     private @NotNull JPanel configureConvertorTask(String title, Converter converter) {
         final var panel = new JPanel();
         final var label = new JLabel(title);
+        label.setSize(new Dimension(100, 100));
         final var input = new JTextField("Вхідне значення");
         final var output = new JTextField("Вихідне значення");
         final var button = new JButton("перетворити");
