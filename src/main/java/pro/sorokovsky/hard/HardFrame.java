@@ -78,6 +78,13 @@ public class HardFrame extends JFrame {
         ));
     }
 
+    private void setupEightTask() {
+        rootPanel.add(configureConvertorTask(
+                "Заданий вираз, що містить круглі, квадратні та фігурні дужки. Визначити баланс дужок (Кожній відкриваючій відповідає закриваюча). ({[]}) – допустимо, ({[])}- не допустимо.",
+                new BracketBalancer()
+        ));
+    }
+
     private @NotNull JPanel configureConvertorTask(String title, Converter converter) {
         final var panel = new JPanel();
         final var label = new JLabel(title);
