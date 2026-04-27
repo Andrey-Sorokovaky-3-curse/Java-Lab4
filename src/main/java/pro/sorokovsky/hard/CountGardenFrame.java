@@ -32,7 +32,6 @@ public class CountGardenFrame extends JFrame {
         controlPanel.add(analyzeBtn);
         controlPanel.add(clearBtn);
 
-        // Таблиця
         String[] columns = {"A", "B", "C", "D", "E", "F", "G", "H"};
         tableModel = new DefaultTableModel(columns, 8) {
             @Override
@@ -60,12 +59,10 @@ public class CountGardenFrame extends JFrame {
 
         JScrollPane scrollPane = new JScrollPane(table);
 
-        // Результат
         resultLabel = new JLabel("Режим: перевірка форми", SwingConstants.CENTER);
         resultLabel.setFont(new Font("Arial", Font.BOLD, 14));
         resultLabel.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0));
 
-        // Легенда
         JPanel legendPanel = new JPanel(new GridLayout(2, 1));
         JLabel legend1 = new JLabel("📌 0 = порожньо | 1,2,3... = номери грядок");
         JLabel legend2 = new JLabel("⚠️ Грядки повинні бути прямокутними та не дотикатися по горизонталі/вертикалі");
@@ -84,7 +81,6 @@ public class CountGardenFrame extends JFrame {
 
         add(mainPanel);
 
-        // Дії
         randomBtn.addActionListener(e -> generateRandomGarden());
         analyzeBtn.addActionListener(e -> analyzeGarden());
         clearBtn.addActionListener(e -> clearGarden());

@@ -21,7 +21,6 @@ public class GardenFrame extends JFrame {
         JPanel mainPanel = new JPanel(new BorderLayout(10, 10));
         mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-        // Панель керування
         JPanel controlPanel = new JPanel(new FlowLayout());
         JButton randomBtn = new JButton("Випадкова ділянка");
         JButton checkBtn = new JButton("Перевірити");
@@ -31,7 +30,6 @@ public class GardenFrame extends JFrame {
         controlPanel.add(checkBtn);
         controlPanel.add(clearBtn);
 
-        // Таблиця
         tableModel = new DefaultTableModel(8, 8) {
             @Override
             public Class<?> getColumnClass(int column) {
@@ -46,12 +44,10 @@ public class GardenFrame extends JFrame {
             table.getColumnModel().getColumn(i).setPreferredWidth(40);
         }
 
-        // Редактор для введення чисел
         table.setDefaultEditor(Integer.class, new DefaultCellEditor(new JTextField()));
 
         JScrollPane scrollPane = new JScrollPane(table);
 
-        // Результат
         resultLabel = new JLabel("Натисніть 'Перевірити'", SwingConstants.CENTER);
         resultLabel.setFont(new Font("Arial", Font.BOLD, 14));
 
@@ -61,7 +57,6 @@ public class GardenFrame extends JFrame {
 
         add(mainPanel);
 
-        // Дії
         randomBtn.addActionListener(e -> generateRandomGarden());
         checkBtn.addActionListener(e -> checkGarden());
         clearBtn.addActionListener(e -> clearGarden());
@@ -132,11 +127,5 @@ public class GardenFrame extends JFrame {
                 tableModel.setValueAt(garden[i][j], i, j);
             }
         }
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            new CountGardenFrame().setVisible(true);
-        });
     }
 }
