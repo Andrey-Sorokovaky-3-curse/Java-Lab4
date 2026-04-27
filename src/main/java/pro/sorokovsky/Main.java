@@ -38,6 +38,7 @@ public class Main {
         context.addCommand(new NormalThreeTask());
         context.addCommand(new NormalFourTask());
         context.addCommand(new NormalFiveTask());
+        context.addCommand(new NormalSixTask());
         return context;
     }
 }

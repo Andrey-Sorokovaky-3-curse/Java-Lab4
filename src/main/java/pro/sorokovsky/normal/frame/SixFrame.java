@@ -4,8 +4,8 @@ import pro.sorokovsky.normal.handler.AddItemToListHandler;
 
 import javax.swing.*;
 
-public class FiveFrame extends JFrame {
-    public FiveFrame(String title) {
+public class SixFrame extends JFrame {
+    public SixFrame(String title) {
         setTitle(title);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setSize(400, 600);
@@ -15,7 +15,7 @@ public class FiveFrame extends JFrame {
         final var label = new JLabel("Однозв'язний список");
         final var list = new JList<>(model);
         final var addButton = new JButton("Додати");
-        addButton.addActionListener(new AddItemToListHandler(list, false));
+        addButton.addActionListener(new AddItemToListHandler(list, true));
         panel.add(label);
         panel.add(list);
         panel.add(addButton);
