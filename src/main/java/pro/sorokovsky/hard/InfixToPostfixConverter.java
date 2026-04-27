@@ -3,12 +3,12 @@ package pro.sorokovsky.hard;
 import org.jetbrains.annotations.NotNull;
 import pro.sorokovsky.common.container.Stack;
 
-public class InfixToPostfixConverter {
-    private static boolean isOperator(char c) {
+public class InfixToPostfixConverter implements Converter {
+    private boolean isOperator(char c) {
         return c == '+' || c == '-' || c == '*' || c == '/' || c == '^';
     }
 
-    private static int getPrecedence(char c) {
+    private int getPrecedence(char c) {
         switch (c) {
             case '+':
             case '-':
@@ -23,11 +23,11 @@ public class InfixToPostfixConverter {
         }
     }
 
-    private static boolean isOperand(char c) {
+    private boolean isOperand(char c) {
         return Character.isLetterOrDigit(c);
     }
 
-    public static @NotNull String infixToPostfix(@NotNull String expression) {
+    public @NotNull String convert(@NotNull String expression) {
         StringBuilder result = new StringBuilder();
         Stack<Character> stack = new Stack<>();
 
@@ -46,7 +46,7 @@ public class InfixToPostfixConverter {
                 while (!stack.isEmpty() && stack.peek() != '(') {
                     result.append(stack.pop());
                 }
-                stack.pop(); // Видаляємо '(' зі стеку
+                stack.pop();
             }
             // Якщо це оператор
             else if (isOperator(c)) {
@@ -67,7 +67,7 @@ public class InfixToPostfixConverter {
         return result.toString();
     }
 
-    public static boolean isValidInfix(String expression) {
+    public boolean isValidInfix(@NotNull String expression) {
         int balance = 0;
         for (int i = 0; i < expression.length(); i++) {
             char c = expression.charAt(i);
