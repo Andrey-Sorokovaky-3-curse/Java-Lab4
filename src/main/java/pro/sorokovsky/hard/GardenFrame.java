@@ -136,7 +136,7 @@ public class GardenFrame extends JFrame {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            new GardenFrame().setVisible(true);
+            new CountGardenFrame().setVisible(true);
         });
     }
 }

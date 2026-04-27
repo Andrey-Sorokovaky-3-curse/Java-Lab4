@@ -1,6 +1,6 @@
 package pro.sorokovsky.hard;
 
-public class GardenChecker implements Converter {
+public class GardenChecker {
 
     private int[][] garden;
     private boolean[][] visited;
@@ -34,21 +34,18 @@ public class GardenChecker implements Converter {
         int maxRow = startRow;
         int maxCol = startCol;
 
-        // Знаходимо ширину прямокутника (вправо)
         for (int j = startCol + 1; j < cols; j++) {
             if (garden[startRow][j] == bedId && !visited[startRow][j]) {
                 maxCol = j;
             } else break;
         }
 
-        // Знаходимо висоту прямокутника (вниз)
         for (int i = startRow + 1; i < rows; i++) {
             if (garden[i][startCol] == bedId && !visited[i][startCol]) {
                 maxRow = i;
             } else break;
         }
 
-        // Перевіряємо всю прямокутну область
         for (int i = startRow; i <= maxRow; i++) {
             for (int j = startCol; j <= maxCol; j++) {
                 if (i >= rows || j >= cols || garden[i][j] != bedId) {
@@ -61,7 +58,6 @@ public class GardenChecker implements Converter {
             return false;
         }
 
-        // Позначаємо як відвідані
         for (int i = startRow; i <= maxRow; i++) {
             for (int j = startCol; j <= maxCol; j++) {
                 visited[i][j] = true;
@@ -72,9 +68,7 @@ public class GardenChecker implements Converter {
     }
 
     private boolean hasNoAdjacentBeds(int minRow, int maxRow, int minCol, int maxCol, int bedId) {
-        // Перевіряємо всі клітинки навколо прямокутника
 
-        // Верхня межа
         if (minRow > 0) {
             for (int j = minCol; j <= maxCol; j++) {
                 if (garden[minRow - 1][j] != 0 && garden[minRow - 1][j] != bedId) {
@@ -105,10 +99,5 @@ public class GardenChecker implements Converter {
         }
 
         return true;
-    }
-
-    @Override
-    public String convert(String input) {
-        return "Використовуйте GUI для вводу";
     }
 }

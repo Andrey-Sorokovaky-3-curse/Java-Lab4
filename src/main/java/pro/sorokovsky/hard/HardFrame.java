@@ -32,6 +32,7 @@ public class HardFrame extends JFrame {
         setupEightTask();
         setupNinetiethTask();
         setupTenthTask();
+        setupEleventhTask();
     }
 
     private void setupFirstTask() {
@@ -108,6 +109,24 @@ public class HardFrame extends JFrame {
         JButton openGardenBtn = new JButton("Відкрити перевірку грядок");
         openGardenBtn.addActionListener(e -> {
             GardenFrame gardenFrame = new GardenFrame();
+            gardenFrame.setVisible(true);
+        });
+
+        panel.add(openGardenBtn);
+        rootPanel.add(panel);
+        rootPanel.add(Box.createVerticalStrut(15));
+    }
+
+    private void setupEleventhTask() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setBorder(BorderFactory.createTitledBorder(
+                "Садова ділянка - Аналіз грядок (садова ділянка M×N)"
+        ));
+
+        JButton openGardenBtn = new JButton("Відкрити перевірку грядок");
+        openGardenBtn.addActionListener(e -> {
+            CountGardenFrame gardenFrame = new CountGardenFrame();
             gardenFrame.setVisible(true);
         });
 
