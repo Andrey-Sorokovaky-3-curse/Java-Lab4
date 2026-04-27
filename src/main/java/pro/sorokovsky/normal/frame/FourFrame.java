@@ -19,6 +19,7 @@ public class FourFrame extends JFrame {
         final var addButton = new JButton("Додати елемент у чергу");
         final var removeButton = new JButton("Видалити елемент із черги");
         final var text = new JTextField("Текстове поле");
+        text.setEditable(false);
         addButton.addActionListener(new AddItemToQueueHandler(model));
         removeButton.addActionListener(new RemoveItemFromQueueHandler(model, text));
         panel.add(label);
