@@ -1,5 +1,6 @@
 package pro.sorokovsky.simple;
 
+import pro.sorokovsky.common.container.Queue;
 import pro.sorokovsky.console.commands.Command;
 import pro.sorokovsky.console.commands.Context;
 import pro.sorokovsky.console.inputs.IntegerInput;
@@ -16,17 +17,17 @@ public class SimpleEightTask extends Command {
 
     @Override
     public void execute(Context context) {
-        final var firstQueue = new LinkedList<Integer>();
-        final var secondQueue = new LinkedList<Integer>();
+        final var firstQueue = new Queue<Integer>();
+        final var secondQueue = new Queue<Integer>();
 
         for (int i = 0; i < 4; i++) {
             final var number = input.enter("%d елемент першої черги".formatted(i));
-            firstQueue.addFirst(number);
+            firstQueue.offer(number);
         }
 
         for (int i = 0; i < 4; i++) {
             final var number = input.enter("%d елемент другої черги".formatted(i));
-            secondQueue.addFirst(number);
+            secondQueue.offer(number);
         }
 
         System.out.printf("Черги %s ідентичні%n", firstQueue.equals(secondQueue) ? "" : "не");
