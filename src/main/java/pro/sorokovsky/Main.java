@@ -3,6 +3,7 @@ package pro.sorokovsky;
 import org.jetbrains.annotations.NotNull;
 import pro.sorokovsky.console.commands.Context;
 import pro.sorokovsky.console.commands.ExitCommand;
+import pro.sorokovsky.hard.HardCommand;
 import pro.sorokovsky.normal.command.*;
 import pro.sorokovsky.simple.*;
 
@@ -12,6 +13,7 @@ public class Main {
         context.addCommand(new ExitCommand());
         context.addCommand(setupSimpleLevel());
         context.addCommand(setupNormalLevel());
+        context.addCommand(new HardCommand());
         context.start();
     }
 
