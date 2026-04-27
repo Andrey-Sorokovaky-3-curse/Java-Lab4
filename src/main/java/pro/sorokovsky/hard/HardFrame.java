@@ -18,6 +18,7 @@ public class HardFrame extends JFrame {
         rootPanel.setAlignmentY(TOP_ALIGNMENT);
         setupFirstTask();
         setupSecondTask();
+        setupThirdTask();
     }
 
     private void setupFirstTask() {
@@ -32,6 +33,13 @@ public class HardFrame extends JFrame {
                 "Перетворення математичного виразу в інфіксній (a+b*c) формі до постфіксної (abc*+) форми.",
                 new InfixToPostfixConverter()
                 ));
+    }
+
+    private void setupThirdTask() {
+        rootPanel.add(configureConvertorTask(
+                "Перетворення математичного виразу в префіксній (+a*bc) формі до інфіксної (a+b*c) форми.",
+                new PrefixToInfixConverter()
+        ));
     }
 
     private @NotNull JPanel configureConvertorTask(String title, Converter converter) {
