@@ -21,6 +21,7 @@ public class HardFrame extends JFrame {
         setupThirdTask();
         setupFourthTask();
         setupFifthTask();
+        setupSixthTask();
     }
 
     private void setupFirstTask() {
@@ -55,6 +56,13 @@ public class HardFrame extends JFrame {
         rootPanel.add(configureConvertorTask(
                 "Перетворення математичного виразу в постфіксній (abc*+) формі до префіксної (+a*bc) форми.",
                 new PostfixToPrefixConverter()
+        ));
+    }
+
+    private void setupSixthTask() {
+        rootPanel.add(configureConvertorTask(
+                "Перетворення математичного виразу в постфіксній (abc*+) формі до інфіксної (a+b*c) форми.",
+                new PostfixToInfixConverter()
         ));
     }
 
