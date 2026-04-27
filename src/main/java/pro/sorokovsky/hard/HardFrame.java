@@ -12,11 +12,11 @@ public class HardFrame extends JFrame {
         final var scrollPane = new JScrollPane();
         scrollPane.setViewportView(rootPanel);
         scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         setTitle(title);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setSize(800,600);
-        setResizable(false);
+        setSize(900,600);
+        setResizable(true);
         add(scrollPane);
         rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.Y_AXIS));
         rootPanel.setAlignmentY(TOP_ALIGNMENT);
@@ -27,6 +27,7 @@ public class HardFrame extends JFrame {
         setupFifthTask();
         setupSixthTask();
         setupSeventhTask();
+        setupEightTask();
     }
 
     private void setupFirstTask() {
@@ -81,7 +82,7 @@ public class HardFrame extends JFrame {
     private void setupEightTask() {
         rootPanel.add(configureConvertorTask(
                 "Заданий вираз, що містить круглі, квадратні та фігурні дужки. Визначити баланс дужок (Кожній відкриваючій відповідає закриваюча). ({[]}) – допустимо, ({[])}- не допустимо.",
-                new BracketBalancer()
+                new MultiBracketBalancer()
         ));
     }
 
