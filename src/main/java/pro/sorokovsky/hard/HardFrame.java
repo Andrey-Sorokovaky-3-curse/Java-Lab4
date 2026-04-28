@@ -37,6 +37,16 @@ public class HardFrame extends JFrame {
         setupThirteenthTask();
         setupFourteenthTask();
         setupFifteenthTask();
+        setupSixteenthTask();
+    }
+
+    private void setupSixteenthTask() {
+        rootPanel.add(configureConvertorTask(
+                "Вивести значення цілочисельного виразу, заданого у вигляді\n" +
+                        "рядка S. Вираз визначається наступним чином: <вираз> :: =\n" +
+                        "<цифра> | (<вираз> <знак> <вираз>) <знак> :: = + | - | *.",
+                new BracketExpressionEvaluator()
+        ));
     }
 
     private void setupFirstTask() {
