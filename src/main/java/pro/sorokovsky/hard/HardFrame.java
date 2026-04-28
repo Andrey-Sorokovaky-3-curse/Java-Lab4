@@ -35,6 +35,7 @@ public class HardFrame extends JFrame {
         setupEleventhTask();
         setupTwelfthTask();
         setupThirteenthTask();
+        setupFourteenthTask();
     }
 
     private void setupFirstTask() {
@@ -174,6 +175,15 @@ public class HardFrame extends JFrame {
                         "рядка S. Вираз визначається наступним чином: <вираз> :: =\n" +
                         "<цифра> | <вираз> + <цифра> | <вираз> - <цифра>.",
                 new IntegerExpressionEvaluator()
+        ));
+    }
+
+    private void setupFourteenthTask() {
+        rootPanel.add(configureConvertorTask(
+                "Вивести значення цілочисельного виразу, заданого у вигляді\n" +
+                        "рядка S. Вираз визначається наступним чином: <вираз> :: =\n" +
+                        "<терм> | <вираз> + <терм> | <вираз> - <терм> <терм> :: = <цифра> | <терм> * <цифра>.",
+                new IntegerExpression2Evaluator()
         ));
     }
 
