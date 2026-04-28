@@ -44,6 +44,14 @@ public class HardFrame extends JFrame {
         setupTwentiethTask();
         setupTwentyFirstTask();
         setupTwentySecondTask();
+        setupTwentyThirdTask();
+    }
+
+    private void setupTwentyThirdTask() {
+        rootPanel.add(configureConvertorTask(
+                "Перевірити правильність розстановки дужок в рядку S (текст в рядку S визначається за тими ж правилами, що і в завданні 22). Якщо текст складений правильно, то вивести 0; у противному випадку вивести номер першої помилковою дужки або -1, якщо в рядку недостатньо закриваючих дужок.",
+                new TwentyThirdValidator()
+        ));
     }
 
     private void setupTwentySecondTask() {
