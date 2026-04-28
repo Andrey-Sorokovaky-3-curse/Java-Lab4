@@ -41,6 +41,22 @@ public class HardFrame extends JFrame {
         setupSeventeenthTask();
         setupEighteenthTask();
         setupNineteenthTask();
+        setupTwentiethTask();
+        setupTwentyFirstTask();
+    }
+
+    private void setupTwentyFirstTask() {
+        rootPanel.add(configureConvertorTask(
+                "Вивести значення логічного виразу, заданого у вигляді рядка S. Вираз визначається наступним чином (\"T\" - True, \"F\" - False): <вираз> :: = T | F | And (<операнди>) | Or (<операнди>) | Not(<вираз>) <операнди > :: = <вираз> | <вираз>, <операнди>.",
+                new TwentyFirstEvaluator()
+        ));
+    }
+
+    private void setupTwentiethTask() {
+        rootPanel.add(configureConvertorTask(
+                "Вивести значення логічного виразу, заданого у вигляді рядка S. Вираз визначається наступним чином (\"T\" - True, \"F\" - False): <вираз> :: = T | F | And (<операнди>) | Or (<операнди>) <операнди> :: = <вираз> | <вираз>, <операнди>",
+                new TwentiethValidator()
+        ));
     }
 
     private void setupNineteenthTask() {
