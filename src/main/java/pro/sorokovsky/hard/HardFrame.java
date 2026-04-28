@@ -38,6 +38,16 @@ public class HardFrame extends JFrame {
         setupFourteenthTask();
         setupFifteenthTask();
         setupSixteenthTask();
+        setupSeventeenthTask();
+    }
+
+    private void setupSeventeenthTask() {
+        rootPanel.add(configureConvertorTask(
+                "Перевірити правильність виразу, заданого у вигляді рядка S\n" +
+                        "(вираз визначається за тими ж правилами, що і в завданні 16).\n" +
+                        "Якщо вираз складено правильно, то вивести True, інакше вивести False.",
+                new SixteenthValidator()
+        ));
     }
 
     private void setupSixteenthTask() {
