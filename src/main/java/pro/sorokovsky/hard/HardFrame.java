@@ -39,6 +39,27 @@ public class HardFrame extends JFrame {
         setupFifteenthTask();
         setupSixteenthTask();
         setupSeventeenthTask();
+        setupEighteenthTask();
+        setupNineteenthTask();
+    }
+
+    private void setupNineteenthTask() {
+        rootPanel.add(configureConvertorTask(
+                "Вивести значення логічного виразу, заданого у вигляді рядка S.\n" +
+                        "Вираз визначається наступним чином (\"T\" - True, \"F\" - False):\n" +
+                        "<вираз> :: = T | F | And (<операнди>) | Or (<операнди>) <операнди> :: = <вираз> , <вираз>.",
+                new NineteenthValidator()
+        ));
+    }
+
+    private void setupEighteenthTask() {
+        rootPanel.add(configureConvertorTask(
+                "Перевірити правильність виразу, заданого у вигляді рядка S\n" +
+                        "(вираз визначається за тими ж правилами, що і в завданні 16).\n" +
+                        "Якщо вираз складено правильно, то вивести 0, у противному\n" +
+                        "випадку вивести номер першого помилкового (або зайвого) символу в рядку S.",
+                new SixteenthWithPositionValidation()
+        ));
     }
 
     private void setupSeventeenthTask() {
