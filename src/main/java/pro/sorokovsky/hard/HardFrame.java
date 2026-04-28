@@ -43,6 +43,18 @@ public class HardFrame extends JFrame {
         setupNineteenthTask();
         setupTwentiethTask();
         setupTwentyFirstTask();
+        setupTwentySecondTask();
+    }
+
+    private void setupTwentySecondTask() {
+        rootPanel.add(configureConvertorTask(
+                "Перевірити правильність розстановки дужок в рядку S. Текст у\n" +
+                        "рядку S визначається наступним чином: <текст> :: = <елемент>\n" +
+                        "| <елемент> <текст> <елемент> :: = a | b | c | (<текст>) | [<текст>] \n" +
+                        "| {< текст>} Якщо текст складений правильно, то вивести True,\n" +
+                        "інакше вивести False.",
+                new TwentySecondEvaluator()
+        ));
     }
 
     private void setupTwentyFirstTask() {
