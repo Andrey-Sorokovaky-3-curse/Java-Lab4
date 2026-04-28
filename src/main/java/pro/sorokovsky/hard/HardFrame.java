@@ -33,6 +33,7 @@ public class HardFrame extends JFrame {
         setupNinetiethTask();
         setupTenthTask();
         setupEleventhTask();
+        setupTwelfthTask();
     }
 
     private void setupFirstTask() {
@@ -131,6 +132,37 @@ public class HardFrame extends JFrame {
         });
 
         panel.add(openGardenBtn);
+        rootPanel.add(panel);
+        rootPanel.add(Box.createVerticalStrut(15));
+    }
+
+    private void setupTwelfthTask() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setAlignmentX(LEFT_ALIGNMENT);
+        panel.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createTitledBorder("12. Підрахунок квадратних грядок"),
+                BorderFactory.createEmptyBorder(5, 5, 5, 5)
+        ));
+
+        JButton openGardenBtn = new JButton("⬛ Знайти квадратні грядки");
+        openGardenBtn.setFont(new Font("Arial", Font.BOLD, 12));
+        openGardenBtn.setAlignmentX(LEFT_ALIGNMENT);
+        openGardenBtn.addActionListener(e -> {
+            SwingUtilities.invokeLater(() -> {
+                new SquareGardenFrame().setVisible(true);
+            });
+        });
+
+        JLabel infoLabel = new JLabel("📌 Визначає кількість квадратних грядок (наприклад: 2×2, 3×3)");
+        infoLabel.setFont(new Font("Arial", Font.PLAIN, 10));
+        infoLabel.setForeground(Color.GRAY);
+        infoLabel.setAlignmentX(LEFT_ALIGNMENT);
+
+        panel.add(openGardenBtn);
+        panel.add(Box.createVerticalStrut(5));
+        panel.add(infoLabel);
+
         rootPanel.add(panel);
         rootPanel.add(Box.createVerticalStrut(15));
     }
