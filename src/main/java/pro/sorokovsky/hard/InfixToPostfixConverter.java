@@ -67,14 +67,4 @@ public class InfixToPostfixConverter implements Converter {
         return result.toString();
     }
 
-    public boolean isValidInfix(@NotNull String expression) {
-        int balance = 0;
-        for (int i = 0; i < expression.length(); i++) {
-            char c = expression.charAt(i);
-            if (c == '(') balance++;
-            if (c == ')') balance--;
-            if (balance < 0) return false;
-        }
-        return balance == 0;
-    }
 }
